@@ -42,5 +42,5 @@ export const html = (
       strings.reduce((result, string, i) => {
         const value = values[i] === undefined ? "" : values[i];
         return `${result}${string}${parseValue(value)}`;
-      }),
+      }, ""),
   } as HtmlTemplate);
