@@ -1,0 +1,29 @@
+{
+  "name": "template-html",
+  "version": "1.0.0",
+  "description": "sanitizes your html templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html"
+  ],
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.1",
+    "@types/sanitize-html": "^2.13.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "sanitize-html": "^2.13.0"
+  }
+}
