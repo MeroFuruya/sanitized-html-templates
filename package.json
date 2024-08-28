@@ -1,5 +1,5 @@
 {
-  "name": "template-html",
+  "name": "sanitized-html-templates",
   "version": "1.0.0",
   "description": "sanitizes your html templates",
   "main": "index.js",
