@@ -1,6 +1,6 @@
 {
   "name": "sanitized-html-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sanitizes your html templates",
   "main": "index.js",
   "scripts": {
@@ -12,9 +12,9 @@
   ],
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.js",
-      "types": "./index.d.ts"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "author": "",
