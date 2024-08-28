@@ -3,7 +3,7 @@ import { HtmlTemplate } from "./template.interface";
 
 function isHtmlTemplate(value: unknown): value is HtmlTemplate {
   return (
-    !!value &&
+    value != null &&
     typeof value === "object" &&
     "@type" in value &&
     "getHtml" in value &&
@@ -19,6 +19,19 @@ function sanitizeValue(value: unknown) {
   });
 }
 
+function parseValue(value: unknown): string {
+  if (value == null) {
+    return "";
+  }
+  if (isHtmlTemplate(value)) {
+    return value.getHtml();
+  }
+  if (Array.isArray(value) && value.every(isHtmlTemplate)) {
+    return value.map((v) => v.getHtml()).join("\n");
+  }
+  return sanitizeValue(value);
+}
+
 export const html = (
   strings: TemplateStringsArray,
   ...values: unknown[]
@@ -28,8 +41,6 @@ export const html = (
     getHtml: () =>
       strings.reduce((result, string, i) => {
         const value = values[i] === undefined ? "" : values[i];
-        return `${result}${string}${
-          isHtmlTemplate(value) ? value.getHtml() : sanitizeValue(value)
-        }`;
+        return `${result}${string}${parseValue(value)}`;
       }),
   } as HtmlTemplate);
